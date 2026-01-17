@@ -1,4 +1,7 @@
 import streamlit as st
+import requests
+
+BACKEND_URL = "http://localhost:8000/ask"
 
 st.set_page_config(page_title="Mental Health Support Calling Chatbot", page_icon=":robot_face:")
 st.title("Mental Health Support Calling Chatbot")
@@ -12,6 +15,9 @@ if "messages" not in st.session_state:
 user_input = st.chat_input("Ask a question about mental health support calling chatbot")
 if user_input:
     st.session_state.messages.append({"role": "user", "content": user_input})
+    res = requests.post(BACKEND_URL, json={"message": user_input})
+    response = res.json()
+    st.session_state.messages.append({"role": "assistant", "content": response})
 
 
 for message in st.session_state.messages:
