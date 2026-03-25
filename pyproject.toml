@@ -1,13 +1,17 @@
 [project]
-name = "mental-health-support-calling-chatbot"
-version = "0.1.0"
-description = "Add your description here"
+name = "calmlink"
+version = "1.0.0"
+description = "CalmLink — Mental health support chatbot with crisis detection and Twilio calling"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-    "fastapi>=0.128.0",
-    "pydantic>=2.12.5",
-    "requests>=2.32.5",
-    "streamlit>=1.53.0",
-    "unicorn>=2.1.4",
+    "fastapi>=0.115.0",
+    "uvicorn>=0.30.0",         # FIX: was 'unicorn' (wrong package entirely)
+    "pydantic>=2.10.0",
+    "requests>=2.32.0",
+    "streamlit>=1.40.0",
+    "twilio>=9.0.0",
+    "langchain>=0.3.0",
+    "langchain-groq>=0.2.0",  # Groq cloud LLM integration
+    "python-dotenv>=1.0.0",    # NEW: needed for .env file loading
 ]
